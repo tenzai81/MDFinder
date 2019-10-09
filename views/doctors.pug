@@ -1,0 +1,8 @@
+extend layout
+
+block content
+    ul  
+    each doctor in doctors
+        li.mdList
+        - var urlSlug = doctor.slug
+        a(href="/doctors/" + urlSlug)= doctor.name

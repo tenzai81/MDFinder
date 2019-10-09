@@ -1,0 +1,15 @@
+extend layout
+
+block content
+    form(method="POST" action="/login")
+  .form-group
+    label(for='email') Email address
+    input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email' name = 'email')
+    small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+  .form-group
+    label(for='password') Password
+    input#exampleInputPassword1.form-control(type='password' placeholder='Enter Password' name= 'password')
+  .form-group.form-check
+    input#exampleCheck1.form-check-input(type='checkbox')
+    label.form-check-label(for='exampleCheck1') Check me out
+  button.btn.btn-primary(type='submit') Log In
