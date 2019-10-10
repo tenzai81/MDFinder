@@ -2,9 +2,19 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const app = express();
 const PORT = 3000
+const session = require('express-session');
+const accountRouter = require('./routes/account');
+
+
+app.set("view engine", "pug")
+
+app.use(session({
+    secret: 'whatever we want',
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use(express.static("public"));
-app.set("view engine", "pug")
 app.use(bodyParser.urlencoded({ extended: false}));
 
 
@@ -26,6 +36,8 @@ const doctors = [
 app.get("/doctors",(req, res) =>{
     res.render("doctors", {doctors: doctors});
 });
+
+app.use('/account', accountRouter);
 
 app.get("/doctors/:doctor", (req, res) =>{
     let filteredDoctors = doctors.filter(doctor =>{
@@ -55,5 +67,12 @@ app.post("/login", (req, res) => {
     console.log(req.body);
     res.redirect("/dashboard");
   });
+
+app.get("/account", (req, res)=>{
+    res.render("account")
+})
+app.get("/logout", (req, res) =>{
+    res.redirect("login")
+})
 
 app.listen(PORT, () => console.log(`Port ${PORT} is running`))

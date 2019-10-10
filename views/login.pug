@@ -12,15 +12,6 @@ head
   link(rel='stylesheet' href='/styles/login.css')
   link(rel="icon" href="/images/MDLogo.png")
   block head
-  //- form(method="POST" action="/login")
-  //-   .form-group
-  //-     label(for='email') Email address
-  //-     input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email' name = 'email')
-  //-     medium#emailHelp.form-text We&apos;ll never share your email with anyone else.
-  //-   .form-group
-  //-     label(for='password') Password
-  //-     input#exampleInputPassword1.form-control(type='password' placeholder='Enter Password' name= 'password')
-  //-   button.btn.btn-primary(type='submit') Log In
 body
   include includes/header
   .container
@@ -40,8 +31,8 @@ body
               form#login-form(method='post' role='form' style='display: block;')
                 .form-group
                   input#username.form-control(type='text' name='username' tabindex='1' placeholder='Username' value='')
-                .form-group
-                  input#password.form-control(type='password' name='password' tabindex='2' placeholder='Password')
+                //- .form-group
+                //-   input#password.form-control(type='password' name='password' tabindex='2' placeholder='Password')
                 .form-group.text-center
                   input#remember(type='checkbox' tabindex='3' name='remember')
                   label(for='remember')  Remember Me
