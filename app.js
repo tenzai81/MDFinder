@@ -32,7 +32,7 @@ app.get("/doctors/:doctor", (req, res) =>{
     });
     console.log(filteredDoctors);
     if(filteredDoctors.length <1){
-        res.send("This doctor is not in our databas");
+        res.send("This name is not in our database.");
     }
     res.render("doctor", { doctor: filteredDoctors[0] });
 });
