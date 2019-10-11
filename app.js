@@ -60,9 +60,6 @@ app.get("/login",(req, res) =>{
     res.render("login");
 });
 
-app.get("/contact", (req, res) =>{
-    res.render('contact');
-});
 app.post("/login", (req, res) => {
     console.log(req.body);
     res.redirect("/dashboard");

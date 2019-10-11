@@ -8,6 +8,13 @@ function loginRedirect(req, res, next){
         next();
     }
 }
+function AuthenticationCheck (req, res, next){
+    if (req.session.name){
+        res.redirect("/account/login")
+    } else{
+        next();
+    }
+}
 // router.get("/", (req, res) =>{
 //     console.log(req.session.email);
 //     if (req.session && req.session.username){
