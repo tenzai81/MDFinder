@@ -1,8 +1,11 @@
 extend layout
 
 block content
+    h2 Physician Directory
     ul  
     each doctor in doctors
         li.mdList
         - var urlSlug = doctor.slug
-        a(href="/doctors/" + urlSlug)= doctor.name
+        - var fullName = doctor.first_name + " " + doctor.last_name + " " + "MD"
+        - var specialty = doctor.specialty
+        a(href="/doctors/" + urlSlug)= fullName + " " + specialty
